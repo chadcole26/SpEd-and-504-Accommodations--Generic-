@@ -1,13 +1,12 @@
+<!-- Plugin Credit and Acknowledgement:
+  This a generalized rewrite of Eric Krebill's SPED Accommodations for MI Schools V3.3
+  https://support.powerschool.com/exchange/view.action?download.id=705
+  It has been updated to be used anywhere and not just the state of Michigan.
+-->
 <!DOCTYPE html>
 <html>
 	<head>
-<!-- Plugin Credit and Acknowledgement:
-  This alert is an update of Eric Krebill's SPED Accommodations for MI Schools V3.3
-  https://support.powerschool.com/exchange/view.action?download.id=705
-  It has been updated to reference the MI State Reporting Extension field instead of the legacy custom field.
-  It also adds an image selector allowing districts to choose from 1 of 12 images for their Special Education alert.
--->
-		<title>MI SpEd/504 Alert Image Selector</title>
+		<title>SpEd/504 Alert Image Selector</title>
 		<!-- required scripts -->
 		 ~[wc:commonscripts] 
 		<!-- Required style sheets: screen.css, and print.css --> 
@@ -37,22 +36,22 @@
 		<form action="/~[self.page]?action=success" method="POST">
 		 ~[wc:admin_header_css] 
 		<!-- breadcrumb start -->
-		<a href="/admin/home.html" target="_top">~[text:psx.html.admin_district.misc-district.start_page]</a> &gt; <a href="/admin/district/home.html" target="_top">~[text:psx.html.admin_district.misc-district.district_setup]</a> &gt;&nbsp;MI SpEd/504 Alert Image Selector
+		<a href="/admin/home.html" target="_top">~[text:psx.html.admin_district.misc-district.start_page]</a> &gt; <a href="/admin/district/home.html" target="_top">~[text:psx.html.admin_district.misc-district.district_setup]</a> &gt;&nbsp;SpEd/504 Alert Image Selector
 		<!-- breadcrumb end -->
 		<!-- start of main menu and content --> 
 		 ~[wc:admin_navigation_css] 
 		<!-- Start of Page -->
-		<h1>MI SpEd/504 Alert Image Selector</h1>
+		<h1>SpEd/504 Alert Image Selector</h1>
 		~[if.gpv.action=success]<div class="feedback-confirm">Successfully recorded changes</div>[/if]
 		<!-- start of content area --> 
 		<div class="box-round">
 			<h2>Select an Image</h2>
-			<p>The image you select below will show up on the following pages when the checkbox indicating Special Education information is being sent to the state of Michigan is checked on the student's state reporting pages:</p>
+			<p>The images you select below will show up on the following pages when the checkbox indicating a student has an IEP or 504 Plan are checked on the <em><b>Accommodations</b></em> page in the student record:</p>
 			<ul>
 				<li>Student pages for administrators</li>
 				<li>The attendance page administrators access with the chair from the Teacher Schedules page</li>
-				<li>Student pages for teachers, in the backpack</li>
-				<li>The attendance page teachers access with the chair on their start page</li>
+				<li>Student pages for teachers</li>
+				<li>The meeting attendance page for teachers</li>
 			</ul>
 			<div class="container">
 				<div class="floatdiv">
@@ -66,57 +65,34 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td><img src="/images/misped/alert_misped01.svg" width="50" height="50" alt="MI SpEd Alert Image 1" /></td>
-								<td><input type="radio" name="[pref]mi_sped_alert_image" value="alert_misped01" id="misped01"></td>
-								<td><input type="radio" name="[pref]mi_504_alert_image" value="alert_misped01" id="mi50401"></td>
+								<td><img src="/images/misped/alert_SpEd50401.svg" width="50" height="50" alt="Alert Image 1" /></td>
+								<td><input type="radio" name="[pref]sped_alert_image" value="alert_SpEd50401" id="SpEd01"></td>
+								<td><input type="radio" name="[pref]504_alert_image" value="alert_SpEd50401" id="50401"></td>
 							</tr>
 							<tr>
-								<td><img src="/images/misped/alert_misped02.svg" width="50" height="50" alt="MI SpEd Alert Image 2" /></td>
-								<td><input type="radio" name="[pref]mi_sped_alert_image" value="alert_misped02" id="misped02"></td>
-								<td><input type="radio" name="[pref]mi_504_alert_image" value="alert_misped02" id="mi50402"></td>
+								<td><img src="/images/misped/alert_SpEd50402.svg" width="50" height="50" alt="Alert Image 2" /></td>
+								<td><input type="radio" name="[pref]sped_alert_image" value="alert_SpEd50402" id="SpEd02"></td>
+								<td><input type="radio" name="[pref]504_alert_image" value="alert_SpEd50402" id="50402"></td>
 							</tr>
 							<tr>
-								<td><img src="/images/misped/alert_misped03.svg" width="50" height="50" alt="MI SpEd Alert Image 3" /></td>
-								<td><input type="radio" name="[pref]mi_sped_alert_image" value="alert_misped03" id="misped03"></td>
-								<td><input type="radio" name="[pref]mi_504_alert_image" value="alert_misped03" id="mi50403"></td>
+								<td><img src="/images/misped/alert_SpEd50403.svg" width="50" height="50" alt="Alert Image 3" /></td>
+								<td><input type="radio" name="[pref]sped_alert_image" value="alert_SpEd50403" id="SpEd03"></td>
+								<td><input type="radio" name="[pref]504_alert_image" value="alert_SpEd50403" id="50403"></td>
 							</tr>
 							<tr>
-								<td><img src="/images/misped/alert_misped04.svg" width="50" height="50" alt="MI SpEd Alert Image 4" /></td>
-								<td><input type="radio" name="[pref]mi_sped_alert_image" value="alert_misped04" id="misped04"></td>
-								<td><input type="radio" name="[pref]mi_504_alert_image" value="alert_misped04" id="mi50404"></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="floatdiv">
-					<table>
-						<thead>
-							<tr>
-								<th>Alert Image</th>
-								<th>SpEd/IEP</th>
-								<th>504</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><img src="/images/misped/alert_misped05.svg" width="50" height="50" alt="MI SpEd Alert Image 5" /></td>
-								<td><input type="radio" name="[pref]mi_sped_alert_image" value="alert_misped05" id="misped05"></td>
-								<td><input type="radio" name="[pref]mi_504_alert_image" value="alert_misped05" id="mi50405"></td>
+								<td><img src="/images/misped/alert_SpEd50404.svg" width="50" height="50" alt="Alert Image 4" /></td>
+								<td><input type="radio" name="[pref]sped_alert_image" value="alert_SpEd50404" id="SpEd04"></td>
+								<td><input type="radio" name="[pref]504_alert_image" value="alert_SpEd50404" id="50404"></td>
 							</tr>
 							<tr>
-								<td><img src="/images/misped/alert_misped06.svg" width="50" height="50" alt="MI SpEd Alert Image 6" /></td>
-								<td><input type="radio" name="[pref]mi_sped_alert_image" value="alert_misped06" id="misped06"></td>
-								<td><input type="radio" name="[pref]mi_504_alert_image" value="alert_misped06" id="mi50406"></td>
+								<td><img src="/images/misped/alert_SpEd50405.svg" width="50" height="50" alt="Alert Image 5" /></td>
+								<td><input type="radio" name="[pref]sped_alert_image" value="alert_SpEd50405" id="SpEd05"></td>
+								<td><input type="radio" name="[pref]504_alert_image" value="alert_SpEd50405" id="50405"></td>
 							</tr>
 							<tr>
-								<td><img src="/images/misped/alert_misped07.svg" width="50" height="50" alt="MI SpEd Alert Image 7" /></td>
-								<td><input type="radio" name="[pref]mi_sped_alert_image" value="alert_misped07" id="misped07"></td>
-								<td><input type="radio" name="[pref]mi_504_alert_image" value="alert_misped07" id="mi50407"></td>
-							</tr>
-							<tr>
-								<td><img src="/images/misped/alert_misped08.svg" width="50" height="50" alt="MI SpEd Alert Image 8" /></td>
-								<td><input type="radio" name="[pref]mi_sped_alert_image" value="alert_misped08" id="misped08"></td>
-								<td><input type="radio" name="[pref]mi_504_alert_image" value="alert_misped08" id="mi50408"></td>
+								<td><img src="/images/misped/alert_SpEd50406.svg" width="50" height="50" alt="Alert Image 6" /></td>
+								<td><input type="radio" name="[pref]sped_alert_image" value="alert_SpEd50406" id="SpEd06"></td>
+								<td><input type="radio" name="[pref]504_alert_image" value="alert_SpEd50406" id="50406"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -132,24 +108,77 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td><img src="/images/misped/alert_misped09.svg" width="50" height="50" alt="MI SpEd Alert Image 9" /></td>
-								<td><input type="radio" name="[pref]mi_sped_alert_image" value="alert_misped09" id="misped09"></td>
-								<td><input type="radio" name="[pref]mi_504_alert_image" value="alert_misped09" id="mi50409"></td>
+								<td><img src="/images/misped/alert_SpEd50407.svg" width="50" height="50" alt="Alert Image 7" /></td>
+								<td><input type="radio" name="[pref]sped_alert_image" value="alert_SpEd50407" id="SpEd07"></td>
+								<td><input type="radio" name="[pref]504_alert_image" value="alert_SpEd50407" id="50407"></td>
 							</tr>
 							<tr>
-								<td><img src="/images/misped/alert_misped10.svg" width="50" height="50" alt="MI SpEd Alert Image 10" /></td>
-								<td><input type="radio" name="[pref]mi_sped_alert_image" value="alert_misped10" id="misped10"></td>
-								<td><input type="radio" name="[pref]mi_504_alert_image" value="alert_misped10" id="mi50410"></td>
+								<td><img src="/images/misped/alert_SpEd50408.svg" width="50" height="50" alt="Alert Image 8" /></td>
+								<td><input type="radio" name="[pref]sped_alert_image" value="alert_SpEd50408" id="SpEd08"></td>
+								<td><input type="radio" name="[pref]504_alert_image" value="alert_SpEd50408" id="50408"></td>
 							</tr>
 							<tr>
-								<td><img src="/images/misped/alert_misped11.svg" width="50" height="50" alt="MI SpEd Alert Image 11" /></td>
-								<td><input type="radio" name="[pref]mi_sped_alert_image" value="alert_misped11" id="misped11"></td>
-								<td><input type="radio" name="[pref]mi_504_alert_image" value="alert_misped11" id="mi50411"></td>
+								<td><img src="/images/misped/alert_SpEd50409.svg" width="50" height="50" alt="Alert Image 9" /></td>
+								<td><input type="radio" name="[pref]sped_alert_image" value="alert_SpEd50409" id="SpEd09"></td>
+								<td><input type="radio" name="[pref]504_alert_image" value="alert_SpEd50409" id="50409"></td>
 							</tr>
 							<tr>
-								<td><img src="/images/misped/alert_misped12.svg" width="50" height="50" alt="MI SpEd Alert Image 12" /></td>
-								<td><input type="radio" name="[pref]mi_sped_alert_image" value="alert_misped12" id="misped12"></td>
-								<td><input type="radio" name="[pref]mi_504_alert_image" value="alert_misped12" id="mi50412"></td>
+								<td><img src="/images/misped/alert_SpEd50410.svg" width="50" height="50" alt="Alert Image 10" /></td>
+								<td><input type="radio" name="[pref]sped_alert_image" value="alert_SpEd50410" id="SpEd10"></td>
+								<td><input type="radio" name="[pref]504_alert_image" value="alert_SpEd50410" id="50410"></td>
+							</tr>
+							<tr>
+								<td><img src="/images/misped/alert_SpEd50411.svg" width="50" height="50" alt="Alert Image 11" /></td>
+								<td><input type="radio" name="[pref]sped_alert_image" value="alert_SpEd50411" id="SpEd11"></td>
+								<td><input type="radio" name="[pref]504_alert_image" value="alert_SpEd50411" id="50411"></td>
+							</tr>
+							<tr>
+								<td><img src="/images/misped/alert_SpEd50412.svg" width="50" height="50" alt="Alert Image 12" /></td>
+								<td><input type="radio" name="[pref]sped_alert_image" value="alert_SpEd50412" id="SpEd12"></td>
+								<td><input type="radio" name="[pref]504_alert_image" value="alert_SpEd50412" id="50412"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="floatdiv">
+					<table>
+						<thead>
+							<tr>
+								<th>Alert Image</th>
+								<th>SpEd/IEP</th>
+								<th>504</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><img src="/images/misped/alert_SpEd50409.svg" width="50" height="50" alt="Alert Image 13" /></td>
+								<td><input type="radio" name="[pref]sped_alert_image" value="alert_SpEd50413" id="SpEd09"></td>
+								<td><input type="radio" name="[pref]504_alert_image" value="alert_SpEd50413" id="50413"></td>
+							</tr>
+							<tr>
+								<td><img src="/images/misped/alert_SpEd50410.svg" width="50" height="50" alt="Alert Image 14" /></td>
+								<td><input type="radio" name="[pref]sped_alert_image" value="alert_SpEd50414" id="SpEd10"></td>
+								<td><input type="radio" name="[pref]504_alert_image" value="alert_SpEd50414" id="50413"></td>
+							</tr>
+							<tr>
+								<td><img src="/images/misped/alert_SpEd50411.svg" width="50" height="50" alt="Alert Image 15" /></td>
+								<td><input type="radio" name="[pref]sped_alert_image" value="alert_SpEd50415" id="SpEd11"></td>
+								<td><input type="radio" name="[pref]504_alert_image" value="alert_SpEd50415" id="50415"></td>
+							</tr>
+							<tr>
+								<td><img src="/images/misped/alert_SpEd50412.svg" width="50" height="50" alt="Alert Image 16" /></td>
+								<td><input type="radio" name="[pref]sped_alert_image" value="alert_SpEd50416" id="SpEd12"></td>
+								<td><input type="radio" name="[pref]504_alert_image" value="alert_SpEd50416" id="50416"></td>
+							</tr>
+							<tr>						<tr>
+								<td><img src="/images/misped/alert_SpEd50411.svg" width="50" height="50" alt="Alert Image 17" /></td>
+								<td><input type="radio" name="[pref]sped_alert_image" value="alert_SpEd50417" id="SpEd11"></td>
+								<td><input type="radio" name="[pref]504_alert_image" value="alert_SpEd50417" id="50417"></td>
+							</tr>
+							<tr>
+								<td><img src="/images/misped/alert_SpEd50412.svg" width="50" height="50" alt="Alert Image 18" /></td>
+								<td><input type="radio" name="[pref]sped_alert_image" value="alert_SpEd50418" id="SpEd18"></td>
+								<td><input type="radio" name="[pref]504_alert_image" value="alert_SpEd50418" id="50418"></td>
 							</tr>
 						</tbody>
 					</table>
