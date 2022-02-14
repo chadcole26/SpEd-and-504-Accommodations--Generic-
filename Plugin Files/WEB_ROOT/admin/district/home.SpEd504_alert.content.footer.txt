@@ -3,7 +3,7 @@
   https://support.powerschool.com/exchange/view.action?download.id=705
   It has been updated to be used anywhere and not just the state of Michigan.
 -->
-<!-- This script adds the MI SpEd Alert Image Selector in the Plugins area of the District Setup page -->
+<!-- This script adds the SpEd/504 Alert Image Selector in the Plugins area of the District Setup page -->
 <script type="text/javascript">
   $j(document).ready( function() {
     $j('#table_id_plugins > tbody').append('<tr><td><a href="/admin/district/SpEd504_alert_image_selector.html">SpEd/504 Alert Images</a></td><td>Select the alert images you would like to show when using the SpEd and 504 Alerts with Accommodations from the Powersource Community Exchange.</td></tr>');

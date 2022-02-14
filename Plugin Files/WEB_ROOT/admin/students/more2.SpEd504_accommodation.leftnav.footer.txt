@@ -3,13 +3,13 @@
   https://support.powerschool.com/exchange/view.action?download.id=705
   It has been updated to be used anywhere and not just the state of Michigan.
 -->
-<!--SpEd/504 Alerta with Accommodations Begin-->
+<!--SpEd/504 Alerts with Accommodations Begin-->
 <!--Sort code created by Adam Larsen-->
 <script>
 
 $j(document).ready(function()
 	{
-		$j('ul#std_information').append('<li><a href="sped_accommodations.html?frn=~(studentfrn)">Accommodations</a></li>');	
+		$j('ul#std_information').append('<li><a href="SpEd504_accommodations.html?frn=~(studentfrn)">Accommodations</a></li>');	
 		
 		$j('ul#std_information li').sort(function(a, b)
 			{
@@ -22,4 +22,4 @@ $j(document).ready(function()
 );
 
 </script>
-<!---SpEd/504 Alerta with Accommodations End-->
+<!---SpEd/504 Alerts with Accommodations End-->

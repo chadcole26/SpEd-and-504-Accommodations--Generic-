@@ -11,12 +11,12 @@
 			$j('.SpEd-IEP').each(function() {
 				var ccid = $j(this).attr('ccid');
 				var sdcid = $j(this).attr('sdcid');
-				$j('tr[id=ccid_' + ccid + '] td:eq(1)').append('&nbsp;<a href="/admin/alerts/MI_SPED_ALERT.html?frn=001'+ sdcid +'&type=SpEd/IEP" class="dialogR"  title="Special Education Alert w/Accommodations"><img src="/images/misped/~[displaypref:mi_sped_alert_image].svg" alt="SpEd" width="20" height="20"></a>');
+				$j('tr[id=ccid_' + ccid + '] td:eq(1)').append('&nbsp;<a href="/admin/alerts/SpEd504_alert.html?frn=001'+ sdcid +'&type=SpEd/IEP" class="dialogR"  title="Special Education Alert w/Accommodations"><img src="/images/SpEd504_alerts/~[displaypref:sped_alert_image].svg" alt="SpEd" width="20" height="20"></a>');
 			});
 			$j('.504').each(function() {
 				var ccid = $j(this).attr('ccid');
 				var sdcid = $j(this).attr('sdcid');
-				$j('tr[id=ccid_' + ccid + '] td:eq(1)').append('&nbsp;<a href="/admin/alerts/MI_SPED_ALERT.html?frn=001'+ sdcid +'&type=504" class="dialogR"  title="504 Education Alert w/Accommodations"><img src="/images/misped/~[displaypref:mi_504_alert_image].svg" alt="504" width="20" height="20"></a>');
+				$j('tr[id=ccid_' + ccid + '] td:eq(1)').append('&nbsp;<a href="/admin/alerts/SpEd504_alert.html?frn=001'+ sdcid +'&type=504" class="dialogR"  title="504 Education Alert w/Accommodations"><img src="/images/SpEd504_alerts/~[displaypref:504_alert_image].svg" alt="504" width="20" height="20"></a>');
 			});
 		});
 
@@ -27,11 +27,11 @@
 			from cc cc
 			join students s 
 				on s.id = cc.studentid
-			join s_mi_stu_gc_x sr
-				on sr.studentsdcid = s.dcid
+			join u_sped504_info si
+				on si.studentsdcid = s.dcid
 			where cc.sectionid = ~(gpv.sectionid;sqlText)
 				and to_date('~(gpv.att_date;sqlText)','~[datetext:mmddyyyy]') between cc.dateenrolled and cc.dateleft-1
-				and sr.flagSpecEd = 1
+				and si.has_iep = 1
 	]
 		<input type="hidden" class="SpEd-IEP" ccid="~(1)" sdcid="~(2)" />
 	[/tlist_sql]
@@ -41,11 +41,11 @@
 			from cc cc
 			join students s 
 				on s.id = cc.studentid
-			join s_mi_stu_gc_x sr
-				on sr.studentsdcid = s.dcid
+			join u_sped504_info si
+				on si.studentsdcid = s.dcid
 			where cc.sectionid = ~(gpv.sectionid;sqlText)
 				and to_date('~(gpv.att_date;sqlText)','~[datetext:mmddyyyy]') between cc.dateenrolled and cc.dateleft-1
-				and sr.flagSection504 = 1
+				and si.has_504 = 1
 	]
 		<input type="hidden" class="504" ccid="~(1)" sdcid="~(2)" />
 	[/tlist_sql]
