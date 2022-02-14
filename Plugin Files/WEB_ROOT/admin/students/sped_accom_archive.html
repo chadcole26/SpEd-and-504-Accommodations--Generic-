@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Archived Special Education Accommodations</title>
+		<!-- required scripts -->
+		~[wc:commonscripts] 
+		<!-- Required style sheets: screen.css, and print.css -->
+		<link href="/images/css/screen.css" rel="stylesheet" media="screen">
+		<link href="/images/css/print.css" rel="stylesheet" media="print">
+
+	</head> 
+	<body> 
+		~[wc:admin_header_frame_css]
+		<!-- breadcrumb start -->
+		<a href="/admin/home.html" target="_top">Start Page</a> &gt; <a href="/admin/students/home.html?selectstudent=nosearch" target="_top">Student Selection</a> &gt; SPED Accommodations
+		<!-- breadcrumb end -->
+		~[wc:admin_navigation_frame_css]
+		<!-- start of main menu and content -->
+		~[wc:title_student_begin_css] Archived Special Education Accommodations~[wc:title_student_end_css]
+		<form action="/~[self.page]?frn=~(studentfrn)&changesSaved=true" method="POST">
+			<!-- start of content area -->
+			~[if.gpv.changesSaved=true]<div class="feedback-confirm">~[text:psx.common.changes_recorded]</div>[/if]
+			<div class="box-round">
+			    <h2>Archived Special Education Accommodations</h2>
+			    
+				<table border="0" cellpadding="0" cellspacing="0" class="linkDescList" id="MI_SpEdInfo"> 
+					<thead> 
+						<tr> 
+							<th style="text-align:left;">Information from Special Education State Reporting Pages</th> 
+						</tr> 
+					</thead> 
+					<tfoot> 
+						<tr> 
+							<td style="text-align:left;"><em>This data is maintained on the Michigan state reporting pages and should be updated there.</em></td> 
+						</tr> 
+					</tfoot> 
+					<tbody> 
+						<tr> 
+							<td><b>MSDS reported as participating in Special Education?</b>&nbsp;~(decode;~([STUDENTS.S_MI_STU_GC_X]flagSpecEd);1;Yes;True;Yes;0;No;False;No;;No)</td> 
+						</tr> 
+						<tr> 
+							<td><b>Primary Disability:</b>&nbsp;~([STUDENTS.S_MI_STU_GC_X]sePriDisability) - ~(decode;~([STUDENTS.S_MI_STU_GC_X]sePriDisability);05;Cognitive Impairment;06;Emotional Impairment;07;Hearing Impairment;08;Visual Impairment;09;Physical Impairment;10;Speech and Language Impairment;11;Early Childhood Developmental Delay;13;Specific Learning Disability;14;Severe Multiple Impairment;15;Autism Spectrum Disorder;16;Traumatic Brain Injury;17;Deaf-Blindness;20;Other Health Impairment;;)</td> 
+						</tr> 
+						<tr> 
+							<td><b>Secondary Disability:</b>&nbsp;~([STUDENTS.S_MI_STU_GC_X]seAddDisability) - ~(decode;~([STUDENTS.S_MI_STU_GC_X]seAddDisability);22;Legally Blind;24;Deaf;22,24;Both Legally Blind and Deaf;;)</td> 
+						</tr>
+						<tr> 
+							<td><b>MSDS reported as participating in Section 504?</b>&nbsp;~(decode;~([STUDENTS.S_MI_STU_GC_X]flagSection504);1;Yes;True;Yes;0;No;False;No;;No)</td> 
+						</tr> 
+					</tbody> 
+				</table> 			    
+						
+				~[tlist_sql;
+					SELECT
+						ma.studentsdcid,
+						s.dcid,
+						ma.id,
+						ma.accommodation,
+						TO_CHAR(ma.startdate, 'mm/dd/yyyy') as startdate,
+						TO_CHAR(ma.enddate, 'mm/dd/yyyy') as enddate,
+						ma.condition,
+						ma.frequency,
+						ma.location
+					FROM u_misped_accommodations ma
+					JOIN students s
+						ON ma.studentsdcid = s.dcid
+					WHERE s.id = ~(curstudid)
+						AND ma.archived IS NOT NULL
+					ORDER BY ma.startdate asc, ma.enddate asc
+					;nonemessage=<table><tr><td colspan="100%">There are no archived accommodations recorded for this student.</td></tr></table>]
+				<table class="linkDescList">
+					<thead>
+						<tr>
+							<th>Accommodation Information</th>
+							<th style="text-align:right;"><a href="/admin/spedaccommodations/accommodation_edit.html?frn=001~(ma.studentsdcid)&studentsdcid=~(s.dcid)&editid=~(ma.id)&no-store-lp">Edit Archived Accommodation</a></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="bold" style="width:20%;">Accommodation:</td>
+							<td>~(ma.accommodation)</td>
+						</tr>
+						<tr>
+							<td class="bold">Start Date:</td>
+							<td>~(ma.startdate)</td>
+						</tr>
+						<tr>
+							<td class="bold">End Date:</td>
+							<td>~(ma.enddate)</td>
+						</tr>
+						<tr>
+							<td class="bold">Condition:</td>
+							<td>~(ma.condition)</td>
+						</tr>
+						<tr>
+							<td class="bold">Frequency:</td>
+							<td>~(ma.frequency)</td>
+						</tr>
+						<tr>
+							<td class="bold">Location:</td>
+							<td>~(ma.location)</td>
+						</tr>
+					</tbody>
+				</table>
+				[/tlist_sql]
+					
+				</div>
+
+			</div>
+		</form>
+		<!-- end of content area -->
+		~[wc:admin_footer_frame_css]
+	</body> 
+</html>
