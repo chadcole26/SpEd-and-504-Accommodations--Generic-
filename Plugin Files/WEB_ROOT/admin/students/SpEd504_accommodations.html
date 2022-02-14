@@ -33,8 +33,7 @@
 			<!-- start of content area -->
 			~[if.gpv.changesSaved=true]<div class="feedback-confirm">~[text:psx.common.changes_recorded]</div>[/if]
 			<div class="box-round">
-			    <h2>Special Education/504 Accommodations</h2>
-			    
+	    
 				<table border="0" cellpadding="0" cellspacing="0" class="linkDescList" id="AccommodationInfo"> 
 					<thead> 
 						<tr> 
@@ -43,28 +42,28 @@
 					</thead>
 					<tfoot>
 						<tr>
-							<td><em>Indicator must be set to 'Yes' for the selected alert to appear.</em></td>
+							<td colspan="2"><em>Indicator must be set to 'Yes' for the selected alert to appear.</em></td>
 						</tr>
 					</tfoot> 
 					<tbody>
 						<tr>
-							<td class="bold" style="width:25%;">Student has an active IEP:</td>
+							<td class="bold" style="width:35%;">Student has an active IEP:</td>
 							<td>
-								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS.U_SPED504_INFO]HAS_IEP" value="1" id="iepYes">&nbsp;Yes</label>&nbsp;&nbsp;
-								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS.U_SPED504_INFO]HAS_IEP" value="" id="iepNo">&nbsp;No</label>
+								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS]HAS_IEP" value="1" id="iepYes">&nbsp;Yes</label>&nbsp;&nbsp;
+								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS]HAS_IEP" value="" id="iepNo">&nbsp;No</label>
 							</td>
 						</tr>
 						<tr>
-							<td class="bold" style="width:25%;">Student has an active Section 504 Plan:</td>
+							<td class="bold" style="width:35%;">Student has an active Section 504 Plan:</td>
 							<td>
-								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS.U_SPED504_INFO]HAS_504" value="1" id="504Yes">&nbsp;Yes</label>&nbsp;&nbsp;
-								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS.U_SPED504_INFO]HAS_504" value="" id="504No">&nbsp;No</label>
+								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS]HAS_504" value="1" id="504Yes">&nbsp;Yes</label>&nbsp;&nbsp;
+								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS]HAS_504" value="" id="504No">&nbsp;No</label>
 							</td>
 						</tr>
 					</tbody> 
 				</table>   			    
 
-				<a href="/admin/spedaccommodations/accommodation_add.html?frn=~(studentfrn)&no-store-lp" class="button">Add Accommodation</a>&nbsp;&nbsp;<a href="/admin/students/sped_accom_archive.html?frn=~(studentfrn)&no-store-lp" class="button" style="display:none;" id="archivebutton">View Archived Accommodations</a>
+				<a href="/admin/SpEd504accommodations/accommodation_add.html?frn=~(studentfrn)&no-store-lp" class="button">Add Accommodation</a>&nbsp;&nbsp;<a href="/admin/students/SpEd504_accommodation_archive.html?frn=~(studentfrn)&no-store-lp" class="button" style="display:none;" id="archivebutton">View Archived Accommodations</a>
 				<br /><br />
 						
 				~[tlist_sql;
@@ -90,7 +89,7 @@
 						<tr>
 							<th colspan="2">
 								<span style="float:left;">Accommodation Information: ~(sa.type)</span>
-								<span style="float:right;"><a href="/admin/spedaccommodations/accommodation_edit.html?frn=001~(sa.studentsdcid)&editid=~(sa.id)&no-store-lp">Edit/Archive Accommodation</a></span>
+								<span style="float:right;"><a href="/admin/SpEd504accommodations/accommodation_edit.html?frn=001~(sa.studentsdcid)&editid=~(sa.id)&no-store-lp">Edit/Archive Accommodation</a></span>
 							</th>
 						</tr>
 					</thead>
@@ -134,7 +133,7 @@
 		<div id="archive_test" style="display:none;">
 			~[tlist_sql;
 				SELECT COUNT (*)
-				FROM u_spec504_accommodations sa
+				FROM u_sped504_accommodations sa
 				JOIN students s
 					ON sa.studentsdcid = s.dcid
 				WHERE s.id = ~(curstudid)

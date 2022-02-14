@@ -25,8 +25,7 @@
 		<form action="/~[self.page]?frn=~(studentfrn)&changesSaved=true" method="POST">
 			<!-- start of content area -->
 			~[if.gpv.changesSaved=true]<div class="feedback-confirm">~[text:psx.common.changes_recorded]</div>[/if]
-			<div class="box-round">
-			    <h2>Archived Accommodations</h2>			    
+			<div class="box-round">  
 						
 				~[tlist_sql;
 					SELECT
