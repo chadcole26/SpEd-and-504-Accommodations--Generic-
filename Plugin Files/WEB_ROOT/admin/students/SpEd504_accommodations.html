@@ -49,15 +49,27 @@
 						<tr>
 							<td class="bold" style="width:35%;">Student has an active IEP:</td>
 							<td>
-								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS]HAS_IEP" value="1" id="iepYes">&nbsp;Yes</label>&nbsp;&nbsp;
-								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS]HAS_IEP" value="" id="iepNo">&nbsp;No</label>
+								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS]HAS_IEP" value="1" id="iepYes" required>&nbsp;Yes</label>&nbsp;&nbsp;
+								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS]HAS_IEP" value="" id="iepNo" required>&nbsp;No</label>
 							</td>
 						</tr>
 						<tr>
 							<td class="bold" style="width:35%;">Student has an active Section 504 Plan:</td>
 							<td>
-								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS]HAS_504" value="1" id="504Yes">&nbsp;Yes</label>&nbsp;&nbsp;
-								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS]HAS_504" value="" id="504No">&nbsp;No</label>
+								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS]HAS_504" value="1" id="504Yes" required>&nbsp;Yes</label>&nbsp;&nbsp;
+								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS]HAS_504" value="" id="504No" required>&nbsp;No</label>
+							</td>
+						</tr>
+						<tr>
+							<td class="bold" style="width:35%;">Section 504 Plan Start Date:</td>
+							<td>
+								<input type="text" class="psDateWidget" name="[STUDENTS.U_SPED504_ALERTS]START_504" value="" size="12" id="Start504">
+							</td>
+						</tr>
+						<tr>
+							<td class="bold" style="width:35%;">Section 504 Plan End Date:</td>
+							<td>
+								<input type="text" class="psDateWidget" name="[STUDENTS.U_SPED504_ALERTS]END_504" value="" size="12" id="End504">
 							</td>
 						</tr>
 					</tbody> 

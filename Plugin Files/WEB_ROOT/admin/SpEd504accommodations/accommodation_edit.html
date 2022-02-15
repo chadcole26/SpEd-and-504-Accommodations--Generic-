@@ -36,16 +36,15 @@
   <!-- breadcrumb end -->
   ~[wc:admin_navigation_frame_css]
 
-  ~[wc:title_student_begin_css]Edit/Archive Special Education Accommodation~[wc:title_student_end_css]
+  ~[wc:title_student_begin_css]Edit/Archive Accommodation~[wc:title_student_end_css]
 
   <!-- start of content and bounding box -->
 
-  <form action="/admin/students/SpEd504.html?frn=~(studentfrn)" method="POST">
+  <form action="/admin/students/SpEd504_accommodations.html?frn=~(studentfrn)" method="POST">
 
   <!-- start of content area -->
 	<div class="box-round">
-		
-		~[DirectTable.Select:U_MISPED_ACCOMMODATIONS;id:~(gpv.editid)]
+		~[DirectTable.Select:U_SPED504_ACCOMMODATIONS;id:~(gpv.editid)]
 		<table id="editaccommodation" class="linkDescList">
 			<tr>
 				<td class="bold" style="width:20%;">Type:</td>
