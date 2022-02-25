@@ -22,6 +22,8 @@
         <field name="HAS_504" type="Double" comment="Student has an active 504 plan"/>
         <field name="HAS_IEP" type="Double" comment="Student has an active IEP"/>
         <field name="IS_SPED" type="Double" comment="Student receives special education services"/>
+        <field name="CASE_MANAGER1" type="String" length="100" comment="Primary Case Manager"/>
+        <field name="CASE_MANAGER2" type="String" length="100" comment="Secondary Case Manager"/>
         <field name="START_504" type="Date" comment="Start date for active 504 plan"/>
     </extendedTable>
 </psExtension>

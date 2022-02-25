@@ -37,7 +37,10 @@
 						TO_CHAR(sa.enddate, 'mm/dd/yyyy') as enddate,
 						sa.condition,
 						sa.frequency,
-						sa.location
+						sa.location,
+						sa.createdby,
+						sa.lastupdateby,
+						sa.archivedby
 					FROM u_sped504_accommodations sa
 					JOIN students s
 						ON sa.studentsdcid = s.dcid
@@ -55,7 +58,7 @@
 					<tbody>
 						<tr>
 							<td class="bold" style="width:20%;">Accommodation:</td>
-							<td>~(sa.accommodation)</td>
+							<td>~(sa.accommodation;ReplaceCRLFWithBR)</td>
 						</tr>
 						<tr>
 							<td class="bold">Start Date:</td>
@@ -67,7 +70,7 @@
 						</tr>
 						<tr>
 							<td class="bold">Condition:</td>
-							<td>~(sa.condition)</td>
+							<td>~(sa.condition;ReplaceCRLFWithBR)</td>
 						</tr>
 						<tr>
 							<td class="bold">Frequency:</td>
@@ -76,6 +79,18 @@
 						<tr>
 							<td class="bold">Location:</td>
 							<td>~(sa.location)</td>
+						</tr>
+						<tr>
+							<td class="bold">Created By:</td>
+							<td>~(sa.createdby)</td>
+						</tr>
+						<tr>
+							<td class="bold">Last Update By:</td>
+							<td>~(sa.lastupdateby)</td>
+						</tr>
+						<tr>
+							<td class="bold">Archived By:</td>
+							<td>~(sa.archivedby)</td>
 						</tr>
 					</tbody>
 				</table>
