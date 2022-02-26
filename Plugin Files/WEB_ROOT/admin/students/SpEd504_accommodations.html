@@ -47,17 +47,27 @@
 					</tfoot> 
 					<tbody>
 						<tr>
+							<td class="bold" style="width:35%;">Student is Special Education:</td>
+							<td>
+								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS]IS_SPED" value="1" id="SpEdYes" required>&nbsp;Yes</label>&nbsp;&nbsp;
+								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS]IS_SPED" value="" id="SpEdNo" required>&nbsp;No</label>&nbsp;&nbsp;
+								<em>Info is not currently used to display alerts</em>
+							</td>
+						</tr>
+						<tr>
 							<td class="bold" style="width:35%;">Student has an active IEP:</td>
 							<td>
 								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS]HAS_IEP" value="1" id="iepYes" required>&nbsp;Yes</label>&nbsp;&nbsp;
-								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS]HAS_IEP" value="" id="iepNo" required>&nbsp;No</label>
+								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS]HAS_IEP" value="" id="iepNo" required>&nbsp;No</label>&nbsp;&nbsp;
+								<em>Must be set to Yes for IEP Accommodation alert to display</em>
 							</td>
 						</tr>
 						<tr>
 							<td class="bold" style="width:35%;">Student has an active Section 504 Plan:</td>
 							<td>
 								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS]HAS_504" value="1" id="504Yes" required>&nbsp;Yes</label>&nbsp;&nbsp;
-								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS]HAS_504" value="" id="504No" required>&nbsp;No</label>
+								<label><input type="radio" name="[STUDENTS.U_SPED504_ALERTS]HAS_504" value="" id="504No" required>&nbsp;No</label>&nbsp;&nbsp;
+								<em>Must be set to Yes for Section 504 Accommodation alert to display</em>
 							</td>
 						</tr>
 						<tr>
