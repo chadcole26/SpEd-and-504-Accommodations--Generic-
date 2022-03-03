@@ -22,6 +22,10 @@
 					$j('#archivedby').val('');
 				};
 			});	
+			$j('#CopyDates').click(function(){
+				$j('#startdate').val($j('#Start504').val());
+				$j('#enddate').val($j('#End504').val());
+			}); 
 		});
 	</script>
 </head>
@@ -63,13 +67,15 @@
 			<tr>
 				<td class="bold">Start Date:</td>
 				<td>
-					<input type="text" class="psDateWidget" name="[U_SPED504_ACCOMMODATIONS]STARTDATE" value="" size="12" id="startdate">
+					<input type="text" class="psDateWidget" name="[U_SPED504_ACCOMMODATIONS]STARTDATE" value="" size="12" id="startdate">&nbsp;&nbsp;<a class="button" id="CopyDates">Copy Plan Start/End Dates</a>
+					<input type="hidden" value="~([STUDENTS.U_SPED504_ALERTS]START_504)" id="Start504">
 				</td>
 			</tr>
 			<tr>
 				<td class="bold">End Date:</td>
 				<td>
 					<input type="text" class="psDateWidget" name="[U_SPED504_ACCOMMODATIONS]ENDDATE" value="" size="12" id="enddate">
+					<input type="hidden" value="~([STUDENTS.U_SPED504_ALERTS]END_504)" id="End504">
 				</td>
 			</tr>
 			<tr>

@@ -11,14 +11,20 @@
 		<img class="alertImage" src="/images/SpEd504_alerts/~[displaypref:504_alert_image].svg" width="35" height="35" />
 	[/if#type504A]
 	<div class="alertContent">
-    	<p class="alertHeader">~(studentname)</p>
+    	<h2>~(gpv.type) Accommodations for ~(studentname)</h2>
+    	~[if#cm1.~([STUDENTS.U_SPED504_ALERTS]CASE_MANAGER1)#]
+    	<p><b>Primary Case Manager:</b>&nbsp;~([STUDENTS.U_SPED504_ALERTS]CASE_MANAGER1)</p>
+    	[/if#cm1]
+    	~[if#cm2.~([STUDENTS.U_SPED504_ALERTS]CASE_MANAGER2)#]
+    	<p><b>Secondary Case Manager:</b>&nbsp;~([STUDENTS.U_SPED504_ALERTS]CASE_MANAGER2)</p>
+    	[/if#cm2]
 	
 		~[tlist_sql;
 			SELECT
 				sa.type,
 				sa.accommodation,
-				TO_CHAR(sa.startdate, 'mm/dd/yyyy') as startdate,
-				TO_CHAR(sa.enddate, 'mm/dd/yyyy') as enddate,
+				sa.startdate,
+				sa.enddate,
 				sa.condition,
 				sa.frequency,
 				sa.location
@@ -43,11 +49,11 @@
 				</tr>
 				<tr>
 					<td class="bold">Start Date:</td>
-					<td>~(sa.startdate)</td>
+					<td>~(sa.startdate;d)</td>
 				</tr>
 				<tr>
 					<td class="bold">End Date:</td>
-					<td>~(sa.enddate)</td>
+					<td>~(sa.enddate;d)</td>
 				</tr>
 				<tr>
 					<td class="bold">Condition:</td>

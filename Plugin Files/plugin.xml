@@ -4,7 +4,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	description="Special Education/504 Alerts and Accommodations" 
 	name="SpEd/504 Alerts and Accommodations"
-	version="1.1" 
+	version="1.2" 
 	xsi:schemaLocation="http://plugin.powerschool.pearson.com plugin.xsd">
 	<publisher name="Chad Cole">
 		<contact email="chadacole@gmail.com"/>
