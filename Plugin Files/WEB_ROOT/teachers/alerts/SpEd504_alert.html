@@ -26,8 +26,8 @@
 			SELECT
 				sa.type,
 				sa.accommodation,
-				TO_CHAR(sa.startdate, 'mm/dd/yyyy') as startdate,
-				TO_CHAR(sa.enddate, 'mm/dd/yyyy') as enddate,
+				sa.startdate,
+				sa.enddate,
 				sa.condition,
 				sa.frequency,
 				sa.location
@@ -52,11 +52,11 @@
 				</tr>
 				<tr>
 					<td class="bold">Start Date:</td>
-					<td>~(sa.startdate)</td>
+					<td>~(sa.startdate;d)</td>
 				</tr>
 				<tr>
 					<td class="bold">End Date:</td>
-					<td>~(sa.enddate)</td>
+					<td>~(sa.enddate;d)</td>
 				</tr>
 				<tr>
 					<td class="bold">Condition:</td>
