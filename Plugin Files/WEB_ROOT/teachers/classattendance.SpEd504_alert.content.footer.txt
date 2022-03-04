@@ -18,6 +18,18 @@
 				var sdcid = $j(this).attr('sdcid');
 				$j('tr[id=ccid_' + ccid + '] td:eq(1)').append('&nbsp;<a href="/teachers/alerts/SpEd504_alert.html?frn=001'+ sdcid +'&type=504" class="dialogR"  title="504 Education Alert w/Accommodations"><img src="/images/SpEd504_alerts/~[displaypref:504_alert_image].svg" alt="504" width="20" height="20"></a>');
 			});
+			if ($j('#IEPaccommodationAlerts').length) {
+				$j('#SpEd504_IEP).remove();	
+			} else {
+				$j('#footer').prepend($j('#SpEd504_IEP').html());
+				$j('#SpEd504_IEP).remove();	
+			};
+			if ($j('#504accommodationAlerts').length) {
+				$j('#SpEd504_504).remove();	
+			} else {
+				$j('#footer').prepend($j('#SpEd504_504').html());
+				$j('#SpEd504_504).remove();	
+			};
 		});
 
 	</script>
@@ -32,6 +44,7 @@
 			where cc.sectionid = ~(gpv.sectionid;sqlText)
 				and to_date('~(gpv.att_date;sqlText)','~[datetext:mmddyyyy]') between cc.dateenrolled and cc.dateleft-1
 				and si.has_iep = 1
+			;nonemessage=<input type="hidden" id="IEPaccommodationAlerts" value="0" />
 	]
 		<input type="hidden" class="SpEd-IEP" ccid="~(1)" sdcid="~(2)" />
 	[/tlist_sql]
@@ -46,8 +59,31 @@
 			where cc.sectionid = ~(gpv.sectionid;sqlText)
 				and to_date('~(gpv.att_date;sqlText)','~[datetext:mmddyyyy]') between cc.dateenrolled and cc.dateleft-1
 				and si.has_504 = 1
+			;nonemessage=<input type="hidden" id="504accommodationAlerts" value="0" />
 	]
 		<input type="hidden" class="504" ccid="~(1)" sdcid="~(2)" />
 	[/tlist_sql]
 
 [/if#pagetype]
+
+<div id="SpEd504_IEP" style="display:none;">
+	<div>
+		<p class="customizationDisclaimer">This page displays a Special Education Accommodations alert using the <em>SpEd/504 Alert with Accommodations</em> customization, download ID #1159 from the PowerSource Community Exchange.</p>
+	</div>
+</div>
+
+<div id="SpEd504_504" style="display:none;">
+	<div>
+		<p class="customizationDisclaimer">This page displays a Section 504 Accommodations alert using the <em>SpEd/504 Alert with Accommodations</em> customization, download ID #1159 from the PowerSource Community Exchange.</p>
+	</div>
+</div>
+
+<style>
+
+	.customizationDisclaimer {
+		font-family: Arial,sans-serif;
+		line-height: 1.5em;
+		color: #444;
+	}
+
+</style>

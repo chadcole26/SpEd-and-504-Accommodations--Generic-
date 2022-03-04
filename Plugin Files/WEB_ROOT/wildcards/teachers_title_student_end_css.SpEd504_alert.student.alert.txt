@@ -2,6 +2,51 @@
   This a generalized rewrite of Eric Krebill's SPED Accommodations for MI Schools V3.3
   https://support.powerschool.com/exchange/view.action?download.id=705
   It has been updated to be used anywhere and not just the state of Michigan.
--->&nbsp;
-~[if.~([STUDENTS.U_SPED504_ALERTS]HAS_IEP)=1]<a title='Special Education Alert w/Accommodations' id='SpEd_alert' href='/teachers/alerts/SpEd504_alert.html?frn=~(frn)&type=SpEd/IEP' class='dialogR'><img src='/images/SpEd504_alerts/~[displaypref:sped_alert_image].svg' alt='SpEd' width="20" height="20" /></a>[/if]&nbsp;
-~[if.~([STUDENTS.U_SPED504_ALERTS]HAS_504)=1]<a title='504 Alert w/Accommodations' id='504_alert' href='/teachers/alerts/SpEd504_alert.html?frn=~(frn)&type=504' class='dialogR'><img src='/images/SpEd504_alerts/~[displaypref:504_alert_image].svg' alt='504' width="20" height="20" /></a>[/if]&nbsp;
+-->
+&nbsp;
+~[if#IEPA.~([STUDENTS.U_SPED504_ALERTS]HAS_IEP)=1]
+	<a title='Special Education Alert w/Accommodations' id='SpEd_alert' href='/teachers/alerts/SpEd504_alert.html?frn=~(frn)&type=SpEd/IEP' class='dialogR'><img src='/images/SpEd504_alerts/~[displaypref:sped_alert_image].svg' alt='SpEd' width="20" height="20" /></a>
+[/if#IEPA]
+&nbsp;
+~[if#504A.~([STUDENTS.U_SPED504_ALERTS]HAS_504)=1]
+	<a title='504 Alert w/Accommodations' id='504_alert' href='/teachers/alerts/SpEd504_alert.html?frn=~(frn)&type=504' class='dialogR'><img src='/images/SpEd504_alerts/~[displaypref:504_alert_image].svg' alt='504' width="20" height="20" /></a>
+[/if#504A]
+&nbsp;
+
+~[if#IEPB.~([STUDENTS.U_SPED504_ALERTS]HAS_IEP)=1]
+<div id="SpEd504_IEP" style="display:none;">
+	<div>
+		<p class="customizationDisclaimer">This page displays a Special Education Accommodations alert using the <em>SpEd/504 Alert with Accommodations</em> customization, download ID #1159 from the PowerSource Community Exchange.</p>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$j(document).ready(function(){
+		$j('#footer').prepend($j('#SpEd504_IEP').html());
+	});
+</script>
+[/if#IEPB]
+
+~[if#504B.~([STUDENTS.U_SPED504_ALERTS]HAS_504)=1]
+<div id="SpEd504_504" style="display:none;">
+	<div>
+		<p class="customizationDisclaimer">This page displays a Section 504 Accommodations alert using the <em>SpEd/504 Alert with Accommodations</em> customization, download ID #1159 from the PowerSource Community Exchange.</p>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$j(document).ready(function(){
+		$j('#footer').prepend($j('#SpEd504_504').html());
+	});
+</script>
+[/if#504B]
+
+<style>
+
+	.customizationDisclaimer {
+		font-family: Arial,sans-serif;
+		line-height: 1.5em;
+		color: #444;
+	}
+
+</style>
