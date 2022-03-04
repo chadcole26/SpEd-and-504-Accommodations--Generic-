@@ -6,7 +6,7 @@
 		https://support.powerschool.com/exchange/view.action?download.id=705
 	It has been updated to be used anywhere and not just the state of Michigan.
 -->
-<div class="box-round" id="alert-MI-SPED~(studentfrn)">
+<div class="box-round" id="alert-SPED~(studentfrn)">
 	~[if#typeIEPA.gpv.type=SpEd/IEP]
 		<img class="alertImage" src="/images/SpEd504_alerts/~[displaypref:sped_alert_image].svg" width="35" height="35" />
 	[/if#typeIEPA]
@@ -16,10 +16,10 @@
 	<div class="alertContent">
     	<h2>~(gpv.type) Accommodations for ~(studentname)</h2>
     	~[if#cm1.~([STUDENTS.U_SPED504_ALERTS]CASE_MANAGER1)#]
-    	<p><b>Primary Case Manager:</b>&nbsp;~([STUDENTS.U_SPED504_ALERTS]CASE_MANAGER1)</p>
+    		<p><b>Primary Case Manager:</b>&nbsp;~([STUDENTS.U_SPED504_ALERTS]CASE_MANAGER1)</p>
     	[/if#cm1]
     	~[if#cm2.~([STUDENTS.U_SPED504_ALERTS]CASE_MANAGER2)#]
-    	<p><b>Secondary Case Manager:</b>&nbsp;~([STUDENTS.U_SPED504_ALERTS]CASE_MANAGER2)</p>
+    		<p><b>Secondary Case Manager:</b>&nbsp;~([STUDENTS.U_SPED504_ALERTS]CASE_MANAGER2)</p>
     	[/if#cm2]
 	
 		~[tlist_sql;
