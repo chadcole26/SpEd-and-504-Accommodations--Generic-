@@ -1,7 +1,10 @@
-<!-- Plugin Credit and Acknowledgement:
-  This a generalized rewrite of Eric Krebill's SPED Accommodations for MI Schools V3.3
-  https://support.powerschool.com/exchange/view.action?download.id=705
-  It has been updated to be used anywhere and not just the state of Michigan.
+<!--
+	Plugin Info, Credit, and Acknowledgement:
+	SpEd/504 Alert with Accommodations v1.2:
+		https://support.powerschool.com/exchange/view.action?download.id=1159
+	This a generalized rewrite of Eric Krebill's SPED Accommodations for MI Schools V3.3:
+		https://support.powerschool.com/exchange/view.action?download.id=705
+	It has been updated to be used anywhere and not just the state of Michigan.
 -->
 ~[if#pagetype.~[gpv:pagetype]=meeting]
 
@@ -19,16 +22,14 @@
 				$j('tr[id=ccid_' + ccid + '] td:eq(1)').append('&nbsp;<a href="/teachers/alerts/SpEd504_alert.html?frn=001'+ sdcid +'&type=504" class="dialogR"  title="504 Education Alert w/Accommodations"><img src="/images/SpEd504_alerts/~[displaypref:504_alert_image].svg" alt="504" width="20" height="20"></a>');
 			});
 			if ($j('#IEPaccommodationAlerts').length) {
-				$j('#SpEd504_IEP).remove();	
+				$j('#SpEd504_IEP').remove();	
 			} else {
-				$j('#footer').prepend($j('#SpEd504_IEP').html());
-				$j('#SpEd504_IEP).remove();	
+				$j('#SpEd504_IEP').show();	
 			};
 			if ($j('#504accommodationAlerts').length) {
-				$j('#SpEd504_504).remove();	
+				$j('#SpEd504_504').remove();	
 			} else {
-				$j('#footer').prepend($j('#SpEd504_504').html());
-				$j('#SpEd504_504).remove();	
+				$j('#SpEd504_504').show();	
 			};
 		});
 
@@ -67,23 +68,20 @@
 [/if#pagetype]
 
 <div id="SpEd504_IEP" style="display:none;">
-	<div>
-		<p class="customizationDisclaimer">This page displays a Special Education Accommodations alert using the <em>SpEd/504 Alert with Accommodations</em> customization, download ID #1159 from the PowerSource Community Exchange.</p>
-	</div>
+	<p class="customizationDisclaimer">Special Education Accommodations alert: <em>SpEd/504 Alert with Accommodations</em> customization, download ID #1159 from the PowerSource Community Exchange.</p>
 </div>
 
 <div id="SpEd504_504" style="display:none;">
-	<div>
-		<p class="customizationDisclaimer">This page displays a Section 504 Accommodations alert using the <em>SpEd/504 Alert with Accommodations</em> customization, download ID #1159 from the PowerSource Community Exchange.</p>
-	</div>
+	<p class="customizationDisclaimer">Section 504 Accommodations alert: <em>SpEd/504 Alert with Accommodations</em> customization, download ID #1159 from the PowerSource Community Exchange.</p>
 </div>
 
 <style>
 
 	.customizationDisclaimer {
 		font-family: Arial,sans-serif;
-		line-height: 1.5em;
-		color: #444;
+		font-size: 75%;
+		line-height: 1.0em;
+		color: gray;
 	}
 
 </style>

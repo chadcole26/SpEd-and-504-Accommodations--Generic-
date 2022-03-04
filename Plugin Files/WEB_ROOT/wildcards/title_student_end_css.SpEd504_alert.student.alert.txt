@@ -1,7 +1,10 @@
-<!-- Plugin Credit and Acknowledgement:
-  This a generalized rewrite of Eric Krebill's SPED Accommodations for MI Schools V3.3
-  https://support.powerschool.com/exchange/view.action?download.id=705
-  It has been updated to be used anywhere and not just the state of Michigan.
+<!--
+	Plugin Info, Credit, and Acknowledgement:
+	SpEd/504 Alert with Accommodations v1.2:
+		https://support.powerschool.com/exchange/view.action?download.id=1159
+	This a generalized rewrite of Eric Krebill's SPED Accommodations for MI Schools V3.3:
+		https://support.powerschool.com/exchange/view.action?download.id=705
+	It has been updated to be used anywhere and not just the state of Michigan.
 -->
 &nbsp;
 ~[if#IEPA.~([STUDENTS.U_SPED504_ALERTS]HAS_IEP)=1]
@@ -14,39 +17,71 @@
 &nbsp;
 
 ~[if#IEPB.~([STUDENTS.U_SPED504_ALERTS]HAS_IEP)=1]
-<div id="SpEd504_IEP" style="display:none;">
-	<div>
-		<p class="customizationDisclaimer">This page displays a Special Education Accommodations alert using the <em>SpEd/504 Alert with Accommodations</em> customization, download ID #1159 from the PowerSource Community Exchange.</p>
+	<div id="SpEd504_IEP" style="display:none;">
+		<div>
+			<p class="customizationDisclaimer">Special Education Accommodations alert: <em>SpEd/504 Alert with Accommodations</em> customization, download ID #1159 from the PowerSource Community Exchange.</p>
+		</div>
 	</div>
-</div>
 
-<script type="text/javascript">
-	$j(document).ready(function(){
-		$j('#footer').prepend($j('#SpEd504_IEP').html());
-	});
-</script>
+	<script type="text/javascript">
+		$j(document).ready(function(){
+			setTimeout(function(){
+				if ($j('#legend').length) {
+					$j('#legend').after($j('#SpEd504_IEP').html());
+					$j('#SpEd504_IEP').remove();
+				} else {
+					$j('#cust-content-footer').append($j('#SpEd504_IEP').html());
+					$j('#SpEd504_IEP').remove();
+				};
+			},500);
+		});
+	</script>
 [/if#IEPB]
 
 ~[if#504B.~([STUDENTS.U_SPED504_ALERTS]HAS_504)=1]
-<div id="SpEd504_504" style="display:none;">
-	<div>
-		<p class="customizationDisclaimer">This page displays a Section 504 Accommodations alert using the <em>SpEd/504 Alert with Accommodations</em> customization, download ID #1159 from the PowerSource Community Exchange.</p>
+	<div id="SpEd504_504" style="display:none;">
+		<div>
+			<p class="customizationDisclaimer">Section 504 Accommodations alert: <em>SpEd/504 Alert with Accommodations</em> customization, download ID #1159 from the PowerSource Community Exchange.</p>
+		</div>
 	</div>
-</div>
 
-<script type="text/javascript">
-	$j(document).ready(function(){
-		$j('#footer').prepend($j('#SpEd504_504').html());
-	});
-</script>
+	<script type="text/javascript">
+		$j(document).ready(function(){
+			setTimeout(function(){
+				if ($j('#legend').length) {
+					$j('#legend').after($j('#SpEd504_504').html());
+					$j('#SpEd504_504').remove();
+				} else {
+					$j('#cust-content-footer').append($j('#SpEd504_504').html());
+					$j('#SpEd504_504').remove();		
+				};
+			},500);
+		});
+	</script>
 [/if#504B]
 
-<style>
+~[if#IEPC.~([STUDENTS.U_SPED504_ALERTS]HAS_IEP)=1]
+	<style>
 
-	.customizationDisclaimer {
-		font-family: Arial,sans-serif;
-		line-height: 1.5em;
-		color: #444;
-	}
+		.customizationDisclaimer {
+			font-family: Arial,sans-serif;
+			font-size: 75%;
+			line-height: 1.0em;
+			color: gray;
+		}
 
-</style>
+	</style>
+[else#IEPC]
+	~[if#504C.~([STUDENTS.U_SPED504_ALERTS]HAS_504)=1]
+		<style>
+
+			.customizationDisclaimer {
+				font-family: Arial,sans-serif;
+				font-size: 75%;
+				line-height: 1.0em;
+				color: gray;
+			}
+
+		</style>
+	[/if#504C]
+[/if#IEPC]
