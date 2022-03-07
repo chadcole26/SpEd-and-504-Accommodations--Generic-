@@ -19,7 +19,17 @@
 		$j('#CopyDates').click(function(){
 			$j('#startdate').val($j('#Start504').val());
 			$j('#enddate').val($j('#End504').val());
-		}); 	
+		});
+		$j('#startenddates').change(function(){
+			if(this.checked) {
+				$j('#trstartdate').show();
+				$j('#trenddate').show();
+			} else {
+				$j('.hasDatepicker').datepicker('setDate', null);
+				$j('#trstartdate').hide();
+				$j('#trenddate').hide();
+			};
+		});	 	
   	});
   </script>
 </head>
@@ -61,13 +71,18 @@
 				</td>
 			</tr>
 			<tr>
+				<td colspan="2">
+					<b>Enter start/end dates for this accommodation?</b>&nbsp;&nbsp;<input type="checkbox" id="startenddates">
+				</td>
+			</tr>
+			<tr style="display:none;" id="trstartdate">
 				<td class="bold">Start Date:</td>
 				<td>
 					<input type="text" class="psDateWidget" name="[U_SPED504_ACCOMMODATIONS]STARTDATE" value="" size="12" id="startdate">&nbsp;&nbsp;<a class="button" id="CopyDates">Copy Plan Start/End Dates</a>
 					<input type="hidden" value="~([STUDENTS.U_SPED504_ALERTS]START_504)" id="Start504">
 				</td>
 			</tr>
-			<tr>
+			<tr style="display:none;" id="trenddate">
 				<td class="bold">End Date:</td>
 				<td>
 					<input type="text" class="psDateWidget" name="[U_SPED504_ACCOMMODATIONS]ENDDATE" value="" size="12" id="enddate">
