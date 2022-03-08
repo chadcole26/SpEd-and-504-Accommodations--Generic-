@@ -30,8 +30,8 @@
 				sa.startdate,
 				case when sa.enddate is null then 'none' else null end as endtest,
 				sa.enddate,
-				case when sa.condition is null then 'none' else null end as condtest,
-				sa.condition,
+				case when sa.conddisplay = 'DD' then 'none' else null end as condtest,
+				case when sa.conddisplay = 'DD' then null else sa.condition end as condition,
 				case when sa.frequency is null then 'none' else null end as freqtest,
 				sa.frequency,
 				case when sa.location is null then 'none' else null end as loctest,
@@ -44,7 +44,7 @@
 				AND sa.type = '~(gpv.type)'
 			ORDER BY sa.startdate asc, sa.enddate asc
 			;nonemessage=<table><tr><td colspan="100%">There are no active accommodations recorded for this student.</td></tr></table>]
-		<table class="linkDescList">
+		<table class="linkDescList" id="alertData">
 			<thead>
 				<tr>
 					<th colspan="2">~(sa.type) Accommodation Information</th>
@@ -65,7 +65,7 @@
 				</tr>
 				<tr style="display:~(condtest);">
 					<td class="bold">Condition:</td>
-					<td>~(sa.condition;ReplaceCRLFWithBR)</td>
+					<td>~(condition;ReplaceCRLFWithBR)</td>
 				</tr>
 				<tr style="display:~(freqtest);">
 					<td class="bold">Frequency:</td>
@@ -80,3 +80,12 @@
 		[/tlist_sql]
 	</div>
 </div>
+
+<script type="text/javascript">
+
+	$j(document).ready(function(){
+		$j('#alertData tr:visible:even').css({'background':'#eee'});
+    	$j('#alertData tr:visible:odd').css({'background':'#fff'});
+	});
+
+</script>

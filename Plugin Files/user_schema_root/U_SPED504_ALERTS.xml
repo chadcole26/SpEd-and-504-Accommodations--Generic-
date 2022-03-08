@@ -8,6 +8,7 @@
         <field name="ACCOMMODATION" type="String" length="4000" comment="Special Education or 504 Accommodation"/>
         <field name="ARCHIVED" type="Double" comment="Accommodation Archived Flag"/>
         <field name="ARCHIVEDBY" type="String" length="4000" comment="Accommodation Archive By User Info"/>
+        <field name="CONDDISPLAY" type="String" length="2" comment="Condition Display Preference"/>
         <field name="CONDITION" type="String" length="4000" comment="Accommodation Condition"/>
         <field name="CREATEDBY" type="String" length="4000" comment="Accommodation Created By User Info"/>
         <field name="ENDDATE" type="Date" comment="Accommodation End Date"/>
