@@ -114,12 +114,15 @@
 						sa.studentsdcid,
 						sa.id,
 						sa.accommodation,
-						case when sa.startdate is null then 'none' else null end as starttest1,
+						case when sa.startdate is null then 'none' else null end as starttest,
 						sa.startdate,
-						case when sa.startdate is null then 'none' else null end as starttest2,
+						case when sa.enddate is null then 'none' else null end as endtest,
 						sa.enddate,
+						case when sa.condition is null then 'none' else null end as condtest,
 						sa.condition,
+						case when sa.frequency is null then 'none' else null end as freqtest,
 						sa.frequency,
+						case when sa.location is null then 'none' else null end as loctest,
 						sa.location
 					FROM u_sped504_accommodations sa
 					JOIN students s
@@ -142,23 +145,23 @@
 							<td class="bold" style="width:20%;">Accommodation:</td>
 							<td>~(sa.accommodation;ReplaceCRLFWithBR)</td>
 						</tr>
-						<tr style="display:~(starttest1);">
+						<tr style="display:~(starttest);">
 							<td class="bold">Start Date:</td>
 							<td>~(sa.startdate;d)</td>
 						</tr>
-						<tr style="display:~(starttest2);">
+						<tr style="display:~(endtest);">
 							<td class="bold">End Date:</td>
 							<td>~(sa.enddate;d)</td>
 						</tr>
-						<tr>
+						<tr style="display:~(condtest);">
 							<td class="bold">Condition:</td>
 							<td>~(sa.condition;ReplaceCRLFWithBR)</td>
 						</tr>
-						<tr>
+						<tr style="display:~(freqtest);">
 							<td class="bold">Frequency:</td>
 							<td>~(sa.frequency)</td>
 						</tr>
-						<tr>
+						<tr style="display:~(loctest);">
 							<td class="bold">Location:</td>
 							<td>~(sa.location)</td>
 						</tr>
